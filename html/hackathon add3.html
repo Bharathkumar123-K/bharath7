@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Hackathon Technical Quiz</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #f4f4f4;
+      margin: 0;
+      padding: 0;
+    }
+
+    header {
+      background-color: #4CAF50;
+      color: white;
+      text-align: center;
+      padding: 20px;
+    }
+
+    section {
+      margin: 20px;
+      padding: 20px;
+      background-color: white;
+      border-radius: 8px;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    }
+
+    h2 {
+      color: #333;
+    }
+
+    .question {
+      font-size: 20px;
+      margin-bottom: 15px;
+    }
+
+    .options label {
+      display: block;
+      margin: 10px 0;
+    }
+
+    .button {
+      background-color: #4CAF50;
+      color: white;
+      padding: 10px 20px;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      text-align: center;
+      display: block;
+      margin: 20px auto;
+    }
+
+    .button:hover {
+      background-color: #45a049;
+    }
+
+    #feedback {
+      margin-top: 20px;
+      text-align: center;
+      font-weight: bold;
+    }
+
+    .hidden {
+      display: none;
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <h1>Hackathon Technical Quiz</h1>
+  </header>
+
+  <section id="quiz-section">
+    <h2 id="question-number">Question 1</h2>
+    <div class="question">
+      <p id="question-text">What is the time complexity of binary search?</p>
+      <div class="options">
+        <input type="radio" id="option1" name="question" value="O(n)">
+        <label for="option1">O(n)</label>
+
+        <input type="radio" id="option2" name="question" value="O(log n)">
+        <label for="option2">O(log n)</label>
+
+        <input type="radio" id="option3" name="question" value="O(n log n)">
+        <label for="option3">O(n log n)</label>
+
+        <input type="radio" id="option4" name="question" value="O(1)">
+        <label for="option4">O(1)</label>
+      </div>
+    </div>
+
+    <button class="button" onclick="nextQuestion()">Next</button>
+
+    <div id="feedback"></div>
+  </section>
+
+  <footer>
+    <p>© 2025 Hackathon Quiz. All rights reserved.</p>
+  </footer>
+
+  <script>
+    // Questions and answers
+    const questions = [
+      {
+        question: "What is the time complexity of binary search?",
+        options: ["O(n)", "O(log n)", "O(n log n)", "O(1)"],
+        correctAnswer: "O(log n)"
+      },
+      {
+        question: "Which of the following is not a primitive data type in Java?",
+        options: ["int", "char", "boolean", "String"],
+        correctAnswer: "String"
+      },
+      {
+        question: "What does CSS stand for?",
+        options: ["Cascading Style Sheets", "Computer Style Sheets", "Colorful Style Sheets", "Creative Style Sheets"],
+        correctAnswer: "Cascading Style Sheets"
+      },
+      {
+        question: "What is the default value of a boolean variable in Java?",
+        options: ["true", "false", "null", "0"],
+        correctAnswer: "false"
+      },
+      {
+        question: "Which algorithm is used to find the shortest path in a graph?",
+        options: ["Bubble Sort", "DFS", "Dijkstra's Algorithm", "Merge Sort"],
+        correctAnswer: "Dijkstra's Algorithm"
+      },
+      {
+        question: "In which year was JavaScript first released?",
+        options: ["1991", "1995", "2000", "2005"],
+        correctAnswer: "1995"
+      },
+      {
+        question: "What does HTTP stand for?",
+        options: ["HyperText Transport Protocol", "HyperText Transfer Protocol", "HyperText Text Protocol", "High Transfer Protocol"],
+        correctAnswer: "HyperText Transfer Protocol"
+      },
+      {
+        question: "Which is the smallest unit of data in a computer system?",
+        options: ["Bit", "Byte", "Kilobyte", "Gigabyte"],
+        correctAnswer: "Bit"
+      },
+      {
+        question: "Which data structure uses the Last In First Out (LIFO) method?",
+        options: ["Queue", "Array", "Stack", "Linked List"],
+        correctAnswer: "Stack"
+      },
+      {
+        question: "What does SQL stand for?",
+        options: ["Structured Query Language", "Structured Question Language", "Simple Query Language", "System Query Language"],
+        correctAnswer: "Structured Query Language"
+      }
+    ];
+
+    let currentQuestionIndex = 0;
+    let score = 0;
+
+    // Show the next question
+    function nextQuestion() {
+      // Get selected option
+      const selectedOption = document.querySelector('input[name="question"]:checked');
+      if (!selectedOption) {
+        document.getElementById("feedback").innerHTML = "Please select an answer.";
+        return;
+      }
+
+      // Check if the selected answer is correct
+      const answer = selectedOption.value;
+      if (answer === questions[currentQuestionIndex].correctAnswer) {
+        score++;
+        document.getElementById("feedback").innerHTML = "Correct!";
+        document.getElementById("feedback").style.color = "green";
+      } else {
+        document.getElementById("feedback").innerHTML = `Incorrect. The correct answer is ${questions[currentQuestionIndex].correctAnswer}.`;
+        document.getElementById("feedback").style.color = "red";
+      }
+
+      // Clear the radio buttons
+      selectedOption.checked = false;
+
+      // Move to next question
+      currentQuestionIndex++;
+
+      if (currentQuestionIndex < questions.length) {
+        displayQuestion();
+      } else {
+        showResults();
+      }
+    }
+
+    // Display question
+    function displayQuestion() {
+      const questionData = questions[currentQuestionIndex];
+      document.getElementById("question-number").innerText = `Question ${currentQuestionIndex + 1}`;
+      document.getElementById("question-text").innerText = questionData.question;
+      const options = document.getElementsByName('question');
+      options.forEach((option, index) => {
+        option.value = questionData.options[index];
+        option.nextElementSibling.innerText = questionData.options[index];
+      });
+      document.getElementById("feedback").innerHTML = '';
+    }
+
+    // Show results
+    function showResults() {
+      document.getElementById("quiz-section").innerHTML = `
+        <h2>Your Score: ${score} out of ${questions.length}</h2>
+        <p>Thank you for completing the quiz!</p>
+      `;
+    }
+
+    // Initialize quiz
+    displayQuestion();
+  </script>
+  <center><a href="hackathon add6.html"
+      <button type="submit">NEXT</button></center>
+
+</body>
+</html>

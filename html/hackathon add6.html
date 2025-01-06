@@ -1,0 +1,252 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Hackathon Problem Statements</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #f4f4f4;
+      margin: 0;
+      padding: 0;
+    }
+
+    header {
+      background-color: #4CAF50;
+      color: white;
+      text-align: center;
+      padding: 20px;
+    }
+
+    .container {
+      width: 80%;
+      margin: 40px auto;
+    }
+
+    .problem-card {
+      background-color: white;
+      border-radius: 8px;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+      margin: 20px 0;
+      padding: 20px;
+      display: flex;
+      align-items: center;
+      transition: 0.3s ease;
+    }
+
+    .problem-card:hover {
+      box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+    }
+
+    .problem-image {
+      width: 120px;
+      height: 120px;
+      border-radius: 8px;
+      margin-right: 20px;
+    }
+
+    .problem-content {
+      flex: 1;
+    }
+
+    h2 {
+      color: #4CAF50;
+      font-size: 24px;
+    }
+
+    p {
+      color: #333;
+      font-size: 18px;
+    }
+
+    .view-more {
+      background-color: #4CAF50;
+      color: white;
+      padding: 10px 20px;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      font-size: 16px;
+      margin-top: 10px;
+    }
+
+    .view-more:hover {
+      background-color: #45a049;
+    }
+
+    .problem-details {
+      display: none;
+      background-color: #f4f4f4;
+      padding: 15px;
+      border-radius: 8px;
+      margin-top: 15px;
+    }
+
+    footer {
+      text-align: center;
+      padding: 10px;
+      background-color: #333;
+      color: white;
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <h1>Hackathon Problem Statements</h1>
+  </header>
+
+  <div class="container">
+    <!-- Problem 1 -->
+    <div class="problem-card" id="problem-1">
+      <img class="problem-image" src="https://tse1.mm.bing.net/th?id=OIP.qlAiUO0Qcj7qvgJpg8E7FQHaE8&pid=Api&P=0&h=180" alt="Chat Application">
+      <div class="problem-content">
+        <h2>Problem 1: Build a Chat Application</h2>
+        <p>Design and build a real-time chat application using web technologies.</p>
+        <button class="view-more" onclick="toggleDetails(1)">View More</button>
+        <div class="problem-details" id="details-1">
+          <p>Details: Your task is to create a fully functional chat application with user authentication, real-time message sending, and group chat capabilities. You should use WebSockets or a similar technology to enable real-time communication between users.</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Problem 2 -->
+    <div class="problem-card" id="problem-2">
+      <img class="problem-image" src="https://tse2.mm.bing.net/th?id=OIP.kAIzpjgR5BY8QSHcyxb2VwHaE8&pid=Api&P=0&h=180" alt="Finance Manager">
+      <div class="problem-content">
+        <h2>Problem 2: Create a Personal Finance Manager</h2>
+        <p>Build a web application that helps users track their personal finances.</p>
+        <button class="view-more" onclick="toggleDetails(2)">View More</button>
+        <div class="problem-details" id="details-2">
+          <p>Details: The application should allow users to add their income and expenses, categorize transactions, and generate reports on their spending habits. The app should include a dashboard showing the current financial status of the user.</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Problem 3 -->
+    <div class="problem-card" id="problem-3">
+      <img class="problem-image" src="https://tse3.mm.bing.net/th?id=OIP.v-6RkXcd7ZtvBt1penCAAwHaHa&pid=Api&P=0&h=180" alt="E-Commerce Platform">
+      <div class="problem-content">
+        <h2>Problem 3: Build an E-Commerce Platform</h2>
+        <p>Create an online marketplace where users can browse and purchase products.</p>
+        <button class="view-more" onclick="toggleDetails(3)">View More</button>
+        <div class="problem-details" id="details-3">
+          <p>Details: Your e-commerce platform should include a product catalog, a shopping cart, user authentication, and payment integration. The website should be mobile-friendly and secure for online transactions.</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Problem 4 -->
+    <div class="problem-card" id="problem-4">
+      <img class="problem-image" src="https://tse2.mm.bing.net/th?id=OIP.KNVDE9h9-GLpbwqYc402DwHaE8&pid=Api&P=0&h=180" alt="Social Media">
+      <div class="problem-content">
+        <h2>Problem 4: Design a Social Media Platform</h2>
+        <p>Build a social media application where users can post, like, and comment on content.</p>
+        <button class="view-more" onclick="toggleDetails(4)">View More</button>
+        <div class="problem-details" id="details-4">
+          <p>Details: Create a social media platform that includes features such as posting updates, liking and commenting on posts, and following other users. You should also allow for profile management and messaging between users.</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Problem 5 -->
+    <div class="problem-card" id="problem-5">
+      <img class="problem-image" src="https://tse4.mm.bing.net/th?id=OIP.HCJv1Mh3amEIsDknWzVYSgHaE7&pid=Api&P=0&h=180" alt="Weather App">
+      <div class="problem-content">
+        <h2>Problem 5: Build a Weather Forecast Application</h2>
+        <p>Create an app that provides weather forecasts based on user location.</p>
+        <button class="view-more" onclick="toggleDetails(5)">View More</button>
+        <div class="problem-details" id="details-5">
+          <p>Details: Develop a weather forecasting app that shows current weather, a 7-day forecast, and live weather data for any location. The app should be able to detect the user's location and provide relevant weather information.</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Problem 6 -->
+    <div class="problem-card" id="problem-6">
+      <img class="problem-image" src="https://clickup.com/blog/wp-content/uploads/2018/03/to-do-list-apps.png" alt="Todo App">
+      <div class="problem-content">
+        <h2>Problem 6: Build a To-Do List Application</h2>
+        <p>Develop a to-do list application to help users manage their tasks.</p>
+        <button class="view-more" onclick="toggleDetails(6)">View More</button>
+        <div class="problem-details" id="details-6">
+          <p>Details: Create an app where users can add, remove, and edit tasks. Include features like due dates, priority levels, and categorization of tasks for better task management.</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Problem 7 -->
+    <div class="problem-card" id="problem-7">
+      <img class="problem-image" src="https://images.click.in/classifieds/images/178/23_11_2023_15_33_51_b9fb3af4d370b3c4528a726efada2621_5.jpg" alt="Event Booking">
+      <div class="problem-content">
+        <h2>Problem 7: Build an Event Booking System</h2>
+        <p>Create a system where users can book tickets for events.</p>
+        <button class="view-more" onclick="toggleDetails(7)">View More</button>
+        <div class="problem-details" id="details-7">
+          <p>Details: Develop a platform for users to browse and book tickets for various events. The system should have an event calendar, ticket booking, and payment gateway integration.</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Problem 8 -->
+    <div class="problem-card" id="problem-8">
+      <img class="problem-image" src="https://tse1.mm.bing.net/th?id=OIP.BmhluxQYLRxghM9SnmsizwHaHa&pid=Api&P=0&h=180" alt="Online Quiz">
+      <div class="problem-content">
+        <h2>Problem 8: Build an Online Quiz Application</h2>
+        <p>Create an online quiz platform where users can take quizzes.</p>
+        <button class="view-more" onclick="toggleDetails(8)">View More</button>
+        <div class="problem-details" id="details-8">
+          <p>Details: Build an online quiz app where users can select quizzes by category, take quizzes, and get immediate feedback with their scores. You can add features like time limits and scoreboards.</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Problem 9 -->
+    <div class="problem-card" id="problem-9">
+      <img class="problem-image" src="https://www.skoolbeep.com/blog/wp-content/uploads/2020/12/FEATURES-OF-LIBRARY-MANAGEMENT-SYSTEM-SOFTWARE-min-1024x897.png" alt="Library System">
+      <div class="problem-content">
+        <h2>Problem 9: Build a Library Management System</h2>
+        <p>Create an app to manage books and patrons in a library.</p>
+        <button class="view-more" onclick="toggleDetails(9)">View More</button>
+        <div class="problem-details" id="details-9">
+          <p>Details: Develop a library system where users can search, borrow, and return books. Include features like tracking available books, overdue books, and generating reports.</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Problem 10 -->
+    <div class="problem-card" id="problem-10">
+      <img class="problem-image" src="https://www.androidauthority.com/wp-content/uploads/2019/10/Leap-Fitness-Step-Counter-screenshot-2020.jpg" alt="Fitness Tracker">
+      <div class="problem-content">
+        <h2>Problem 10: Build a Fitness Tracker App</h2>
+        <p>Create an app that tracks workouts and fitness progress.</p>
+        <button class="view-more" onclick="toggleDetails(10)">View More</button>
+        <div class="problem-details" id="details-10">
+          <p>Details: Develop an app that allows users to log their workouts, track calories burned, set fitness goals, and monitor their progress over time. You can include graphs to visualize fitness trends.</p>
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+  <footer>
+    <p>&copy; 2025 Hackathon by Sri Eshwar College of Engineering</p>
+  </footer>
+
+  <script>
+    // Function to toggle the visibility of problem details
+    function toggleDetails(problemId) {
+      const details = document.getElementById('details-' + problemId);
+      if (details.style.display === 'block') {
+        details.style.display = 'none';
+      } else {
+        details.style.display = 'block';
+      }
+    }
+  </script>
+  <center><a href="hackathon add4.html"
+      <button type="submit">NEXT</button></center>
+
+</body>
+</html>
